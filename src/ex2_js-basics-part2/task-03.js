@@ -12,8 +12,7 @@ let evenOddZeroarray=[0,0,0];
             
         }
     }
-    for (let i=0;i<evenOddZeroarray.length;i++){
-        console.log(evenOddZeroarray[i]);
-    }
+        return(evenOddZeroarray);
+   
 }
 module.exports=CountOddEvenZeroElements;

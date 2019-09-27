@@ -1,9 +1,10 @@
 function ChooseNumberOrString(argument){
-if (typeof argument ==='string'){
-    console.log('string');
-}else if (typeof argument ==='number'){
-        console.log ('number');
-        }      
-      else console.log ('undefined');   
+ switch(typeof(argument)){
+     case 'string':return('string');
+     break;
+     case 'number':return ('number');
+     break;
+     default:return (undefined);
+ }  
 }
 module.exports=ChooseNumberOrString;
