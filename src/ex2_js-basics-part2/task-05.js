@@ -3,6 +3,6 @@ function FindMaxElement(array){
     for (let i =1; i<array.length;i++){
         if (array[i]>maxElement) maxElement=array[i];
     }
-    return(maxElement);
+    return maxElement;
 }
 module.exports=FindMaxElement;
