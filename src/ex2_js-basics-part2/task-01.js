@@ -3,7 +3,7 @@ function ChooseNumberOrString(argument){
     if (typeof (argument)==='string') argumentType='string'
     else {
         if (typeof (argument)==='number') argumentType='number'
-        else argumentType='undefined';
+        else argumentType=undefined;
     }
  return argumentType;
 }
