@@ -1,6 +1,5 @@
-function FindSimpleNumbers(testingNumber){
-    let isSimple = true;
-    let typeOfNumber;
+function findSimpleNumbers(testingNumber){
+    let typeOfNumber,isSimple = true;
     if(testingNumber===0 || testingNumber===1) return('Number',testingNumber,' is not simple or composite');
     if (testingNumber>=1000)return('Данные неверны');    
     if(testingNumber<=1000) {
@@ -16,5 +15,4 @@ function FindSimpleNumbers(testingNumber){
                                   
     return('Число '+testingNumber+typeOfNumber);
 }
-
-module.exports=FindSimpleNumbers;
+module.exports=findSimpleNumbers;

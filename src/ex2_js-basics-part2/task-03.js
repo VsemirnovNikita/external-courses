@@ -1,4 +1,4 @@
-function CountOddEvenZeroElements(array){
+function countOddEvenZeroElements(array){
 let evenOddZeroarray=[0,0,0];
     for (let i=0;i<array.length;i++){
         if (typeof(array[i])==='number'){ 
@@ -12,4 +12,4 @@ let evenOddZeroarray=[0,0,0];
     return evenOddZeroarray;
    
 }
-module.exports=CountOddEvenZeroElements;
+module.exports=countOddEvenZeroElements;
