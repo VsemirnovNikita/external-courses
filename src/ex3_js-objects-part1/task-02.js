@@ -3,3 +3,4 @@ function showProperties (someObject){
         console.log(key,someObject[key])
     }
 }
+module.exports=showProperties;
