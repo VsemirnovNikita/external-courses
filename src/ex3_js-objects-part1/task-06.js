@@ -1,8 +1,10 @@
 function doDeepCopy(someObject){
-    let copy ={}
+    let copy =Object.assign({},someObject)
     for (let key in someObject){
-        if(typeof someObject[key] === "object") copy[key]=doDeepCopy(someObject[key])
-        else copy[key]=someObject[key];   
+        if(someObject[key] != null && typeof someObject[key] === "object"){
+            if (someObject[key] instanceof Array) copy[key].concat(someObject[key])
+            else copy[key]=doDeepCopy(someObject[key]);  
+        } 
     }
     return copy;
 }
