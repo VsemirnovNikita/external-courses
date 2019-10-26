@@ -7,7 +7,8 @@ function doDeepCopy(someObject){
     switch(typeObject.call(key)){
         case 'object Object': copy[key]=doDeepCopy(someObject[key])
             break;
-        case 'object Array': for (let i=0;i<key.length;i++){
+        case 'object Array': copy[key]=[];
+            for (let i=0;i<key.length;i++){
             if(key[i] != null && typeof key[i] === "object") copy[key[i]]=doDeepCopy(key[i]) 
             else copy[key[i]]=someObject[key[i]]
         }
