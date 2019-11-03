@@ -1,6 +1,5 @@
 /* eslint-disable guard-for-in */
 function doDeepCopy(someObject){
-    
     let copy ={},typeObject=Object.prototype.toString;
     if(someObject!==null){
     for (let key in someObject){
@@ -19,25 +18,6 @@ function doDeepCopy(someObject){
     }
     }
     }
-    
-    
-    
-    
-    
-    
-    /*
-    let copy = Object.assign({},someObject)
-    for (let key in someObject){
-        if(someObject[key] != null && typeof someObject[key] === "object"){
-            if (someObject[key] instanceof Array) copy[key]=someObject[key]
-            else copy[key]=doDeepCopy(someObject[key]);  
-        } 
-    }
-    */
     return copy;
 }
 module.exports=doDeepCopy;
-
-let a={"a": 1, "b": {"c": 0}, "e": {"f": [{"g": 1}]}}
-doDeepCopy(a);
- 
