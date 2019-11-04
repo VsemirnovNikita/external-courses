@@ -8,14 +8,15 @@ function doDeepCopy(someObject){
             break;
         case '[object Array]': copy[key]=[];
             for (let i=0;i<someObject[key].length;i++){
-            if(someObject[key][i] != null && typeof someObject[key][i] === "object") copy[key][i]=doDeepCopy(someObject[key][i]) 
+            if(someObject[key][i] !== null && typeof someObject[key][i] === "object"){
+                copy[key][i]=doDeepCopy(someObject[key][i]) 
+            }
             else copy[key][i]=someObject[key][i]
-        }
+            }
             break;
         default: copy[key]=someObject[key];
-     console.log(typeObject.call(someObject[key]));
             break;
-    }
+        }
     }
     }
     return copy;
