@@ -1,26 +1,24 @@
 (function Calculator(){
     let result=0;
     return {
-        getResult : function(){
+            getResult: function(){
                 return result;
-                },
-        reset: function() {
-                previousResult=result;
+            },
+            reset: function() {
                 result=0;
-                },
-        add:function(addendum=0){
-                result+=addendum;
-                },
-        subtract: function(subtrahend=0){
-                result-=subtrahend
-                },
-        divide: function(divisor=1){
-                result/=divisor;
-                },
-        multiply: function (multiplier=1) {
-                result*=multiplier;
-                return multiply
-                }
-    }
+            },
+            add: function(value=0){
+                result+=value;
+            },
+            subtract: function(value=0){
+                result-=value
+            },
+            divide: function(value=1){
+                result/=value;
+            },
+            multiply: function (value=1) {
+                result*=value;
+            }
+        }
 }())
 module.exports=Calculator;
