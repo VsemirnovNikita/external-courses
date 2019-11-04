@@ -1,5 +1,4 @@
 function doCopy (someObject){
-    let copy = Object.assign({},someObject)
-    return copy
+    return Object.assign({},someObject)
 }
 module.exports=doCopy;
