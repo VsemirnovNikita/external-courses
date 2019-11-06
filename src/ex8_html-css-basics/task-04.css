@@ -1,0 +1,11 @@
+div {
+    background-color: blue;
+} 
+@font-face {
+    font-family: Pompadur; /* Гарнитура шрифта */
+    src: url(fonts/pompadur.eot); /* Для IE5-8 */
+    src: local(pompadur), url(fonts/pompadur.ttf); /* Для остальных браузеров */
+   }
+p{
+    font-family: Pompadur, 'Comic Sans MS', cursive;
+}
