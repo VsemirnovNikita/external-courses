@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body{
+    height: 100%;
+}
+.wrapper{
+    background: #0079BF;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 100%;
+}
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+} 
+.headerLeft{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.headerLeft img{
+    height: 50%;
+}
+.headerRight{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+#listCreate{
+    height: 33px;
+    width: 181px;
+    background: #EBECF0;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+#listCreate img{
+    height: 22px;
+    width:22px;
+    vertical-align: middle;
+}
+#user{
+    width: 64px;
+    height: 40px;
+    border: none;
+    background: #0067A3;
+}
+#user #avatar{
+    width: 40px;
+    max-height: 100%;
+}
+#user #arrow{
+    width: 20px;
+    max-height: 50%;
+}
+#user img{
+    vertical-align: middle;
+}
+footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+}
+.footerText{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+    color: #FFFFFF;
+}
+#name{
+    margin-left: auto;
+    justify-self: flex-end;
+}
+.main{
+    display: flex;
+    align-content: space-around;
+}
+.animationOpen{
+    animation-name: rotateArrow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.animationClose{
+    animation-name: rotateArrow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+@keyframes rotateArrow{
+    0% {
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
