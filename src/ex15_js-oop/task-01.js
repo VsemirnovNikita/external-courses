@@ -9,8 +9,7 @@ class Yummy {
 } 
 class Sweet extends Yummy{
     constructor(name,weight,sugarCount){
-        super(name);
-        super(weight);
+        super(name,weight);
         this.sugarCount=sugarCount;
     }
     showInformation() {
@@ -20,8 +19,7 @@ class Sweet extends Yummy{
 }
 class Cake extends Yummy{
     constructor(name,weight,filling){
-        super(name);
-        super(weight);
+        super(name,weight);
         this.filling=filling;
     }
     showInformation() {
