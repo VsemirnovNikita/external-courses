@@ -1,5 +1,5 @@
-const userButton =document.getElementById('user');
-const arrowIcon=document.getElementById('arrow');
+const userButton =document.querySelector('.user');
+const arrowIcon=document.querySelector('.arrow');
 let isMenuOpen=false;
 
 menuCreate();
