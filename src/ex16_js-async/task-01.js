@@ -11,5 +11,3 @@ function myFetch(url,parametr){
         }
     })
 }  
-
-// fetch polifill 
