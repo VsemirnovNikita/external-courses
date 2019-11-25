@@ -1,10 +1,15 @@
-function myFetch(url,method="GET"){
+function myFetch(url,parametr){
     return new Promise((resolve, reject) => {
         let xhr= new XMLHttpRequest();
-        xhr.open(method,url);
+        xhr.open(parametr.method,url);
         xhr.send();
         if(xhr.status){
-            resolve(xhr.responseText);
+            resolve(JSON.parse(xhr.responseText)); 
+        }
+        xhr.ontimeout = function(){
+            reject("failed");
         }
     })
 }  
+
+// fetch polifill 
