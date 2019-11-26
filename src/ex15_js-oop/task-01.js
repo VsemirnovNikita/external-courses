@@ -32,7 +32,7 @@ class Present{
         this.content=[new Sweet('jelly sweet',30,10),new Sweet('chocolate sweet',50,30),new Cake('gingerbread',500,'chocolate')];
     }
     countSugar(){
-        let countSugar;
+        let countSugar=0;
         for(let i =0;i<this.content.length;i++){
             if(this.content[i] instanceof Sweet){
                 countSugar+=this.content[i].sugarCount;
