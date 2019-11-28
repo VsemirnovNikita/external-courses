@@ -12,7 +12,7 @@ html,body{
     justify-content:space-between;
     height: 100%;
 }
-header {
+.header {
     display: flex;
     align-items: center;
     width: 100%;
@@ -78,6 +78,7 @@ header {
     height: 33px;
     background-color: #EBECF0;
     text-align: center;
+    cursor: pointer;
 }
 .dropDownItem:hover{
     background-color: #0067A3;
@@ -93,13 +94,12 @@ header {
 .user img{
     vertical-align: middle;
 }
-footer {
+.footer {
     display: flex;
     align-items: center;
     width: 100%;
     height: 55px;
     background: #0067A3;
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -118,11 +118,11 @@ h1{
     line-height: 33px;
     color: #FFFFFF;
 }
-#name{
+.name{
     margin-left: auto;
     justify-self: flex-end;
 }
-main{
+.main{
     display: flex;
     align-content: space-around;
 }
@@ -135,7 +135,6 @@ main{
     animation-name: rotateArrowDown;
     animation-duration: 1s;
     animation-fill-mode: forwards;
- 
 }
 @keyframes rotateArrowUp{
     from {
