@@ -1,14 +1,11 @@
 function ElectricalAppliance(power, name) {
     this.power = power;
-    this.activate = false;
+    this.isActive = false;
     this.name = name;
-    this.activating = function (state) {
-        if (state === 'on') {
-            this.activate = true;
-        }
-        if (state === 'off') {
-            this.activate = false;
-        }
+}
+ElectricalAppliance.prototype = {
+    activating: function (state) {
+        this.isActive = state === 'on' ? true : false;
     }
 }
 function HeatingAppliance(temperature, power, name) {
@@ -22,9 +19,9 @@ function ApplianceWithScreen(width, power, name) {
     this.width = width;
 }
 Object.setPrototypeOf(ApplianceWithScreen, ElectricalAppliance);
-function Room(countOfSockets) {
+function Room(countOfSockets, appliances = [new HeatingAppliance('100', 50, 'teapot'), new ApplianceWithScreen(300, 1000, 'laptop')]) {
     this.countOfSockets = countOfSockets;
-    this.appliances = [new HeatingAppliance('100', 50, 'teapot'), new ApplianceWithScreen(300, 1000, 'laptop')];
+    this.appliances = appliances;
 }
 Room.countPower = function (room) {
     let power = 0;
