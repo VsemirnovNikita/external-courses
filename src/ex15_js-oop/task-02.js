@@ -30,5 +30,5 @@ Room.countPower = function (room) {
             power += room.appliances[i].power;
         }
     }
-    console.log(power);
+    console.log(`power: ${power}`);
 }
