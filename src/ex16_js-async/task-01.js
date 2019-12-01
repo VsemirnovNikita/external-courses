@@ -1,7 +1,7 @@
-function myFetch(url,parametr){
+function myFetch(url,option={method:"GET"}){
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
-        xhr.open(parametr.method,url);
+        xhr.open(option.method,url);
         xhr.send();
         xhr.ontimeout = function(){
             reject("failed");
