@@ -1,0 +1,13 @@
+.wrapper{
+    position:relative;
+    display:inline-block;
+} 
+input { margin-top:15px;}
+label { 
+    position:absolute;
+    left:0; 
+    top:0; 
+    transition: all 3s;
+}
+input:invalid + label { top:3px; opacity:0; }
+input:valid + label { opacity:1; top:0; }

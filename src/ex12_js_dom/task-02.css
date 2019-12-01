@@ -1,0 +1,154 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body{
+    height: 100%;
+}
+.wrapper{
+    background: #0079BF;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 100%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+} 
+.headerLeft{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.headerLeft img{
+    height: 50%;
+}
+.headerRight{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+.listAddButton{
+    height: 33px;
+    width: 181px;
+    outline: none;
+    background: #EBECF0;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+.listAddButton img{
+    height: 22px;
+    width:22px;
+    vertical-align: middle;
+}
+.user{
+    position: relative;
+    width: 64px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #0067A3;
+}
+.dropDownContent{
+    display: none;
+    right : 0;
+    border-radius: 10px;
+    position: absolute;
+    width:150px;
+    background-color: #EBECF0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+.dropDownItem{
+    max-width: 100%;
+    border-radius: 10px;
+    height: 33px;
+    background-color: #EBECF0;
+    text-align: center;
+    cursor: pointer;
+}
+.dropDownItem:hover{
+    background-color: #0067A3;
+}
+.user .avatar{
+    width: 40px;
+    max-height: 100%;
+}
+.user .arrow{
+    width: 20px;
+    max-height: 50%;
+}
+.user img{
+    vertical-align: middle;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.footerText{
+    margin: 10px;
+}
+h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+    color: #FFFFFF;
+}
+.name{
+    margin-left: auto;
+    justify-self: flex-end;
+}
+.main{
+    display: flex;
+    align-content: space-around;
+}
+.animationOpen{
+    animation-name: rotateArrowUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.animationClose{
+    animation-name: rotateArrowDown;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes rotateArrowUp{
+    from {
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+@keyframes rotateArrowDown{
+    from {
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+}

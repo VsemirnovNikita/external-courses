@@ -1,0 +1,9 @@
+table {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+    } 
+tr:hover{
+    background: rgb(39, 30, 167);
+}

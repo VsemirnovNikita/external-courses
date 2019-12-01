@@ -1,0 +1,99 @@
+.loader{
+    display: flex;
+    
+}
+.loader div{
+    background: rgb(28, 17, 190);
+    border-radius: 100%;
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    animation-delay: 2s;
+    -webkit-animation: load 3s infinite;
+    animation: load 3s infinite;
+} 
+@keyframes load{
+    from{
+        background:  rgb(28, 17, 190);
+    } 
+    to{
+        background:  rgb(255, 255, 255);
+    }
+}
+.jumpBall{
+    display: flex;
+    justify-content: space-between;
+}
+.jumpBall .wall{
+    width:150px;
+    height: 300px;
+    background: rgb(228, 92, 58)
+}
+.jumpBall .ball{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 100%;
+    -webkit-animation: jump 2s linear infinite;
+    animation: jump 2s linear infinite;
+}
+@keyframes jump{
+    from{
+        width: 25px;
+        right: 90%;
+    }
+    25%{
+        right: 50%;
+        width: 50px;
+    }
+    50%{
+        right: 10%;
+        width: 25px;
+    }
+    75%{
+        right: 50%;
+        width: 50px;
+    }
+    to{
+        width: 25px;
+        right: 90%;
+    }
+}
+.infinity div{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    animation: infinity 3s linear infinite;
+}
+@keyframes infinity{
+from{
+    background: radial-gradient(white, #FFA9A1);
+}
+15%{
+    border-radius: 0%;
+}
+25%{
+    border-radius: 0%;
+    background: repeating-radial-gradient(circle, #B9ECFE, #B9ECFE 10px, #82DDFF 10px, #82DDFF 20px);
+}
+45%{
+    border-radius: 0%;
+    background: repeating-radial-gradient(circle, #B9ECFE, #B9ECFE 10px, #82DDFF 10px, #82DDFF 20px);
+    width: 400px;
+    transform: skewX(20deg);
+}
+65%{
+    border-radius: 0%;
+    background: repeating-radial-gradient(circle, #B9ECFE, #B9ECFE 10px, #82DDFF 10px, #82DDFF 20px);
+    width: 400px;
+    transform: skewX(20deg);
+    transform: rotate(360deg);
+}
+85%{
+    background: radial-gradient(white, #FFA9A1);
+}
+to{
+    border-radius: 100%
+}
+}
