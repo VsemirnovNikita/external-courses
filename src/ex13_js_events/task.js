@@ -1,21 +1,13 @@
 const userButton = document.querySelector('.user');
 const arrowIcon = document.querySelector('.arrow');
 const main = document.querySelector('.main');
+const myStorage = window.localStorage;
 let isMenuOpen = false;
-const addCardButtonsArray = [];
-const dataMock = [{ title: 'Backlog', issues: [{ id: 'task-1', name: 'Sprint bugfix' }], },
-{ title: 'Ready', issues: [{ id: 'task-1', name: 'Sprint bugfix' }], },
-{ title: 'In progress', issues: [{ id: 'task-1', name: 'Sprint bugfix' }], },
-{ title: 'Finished', issues: [{ id: 'task-1', name: 'Sprint bugfix' }], }]
-
-createMenu();
-for (let i = 0; i < dataMock.length; i++) {
-    createTaskBlock(dataMock[i]);
-}
-addCardButtonsArray[0].onclick = addNewTask;
-for (let i = 1; i < addCardButtonsArray.length; i++) {
-    addCardButtonsArray[i].addEventListener('click',getTaskToNextBlock(i));
-}
+let addCardButtonsArray = [];
+let dataMock = [{ title: 'Backlog', issues: [{ id: 'task-1', name: 'Sprint bugfix' }], },
+{ title: 'Ready', issues: [{ id: 'task-1', name: '1' }], },
+{ title: 'In progress', issues: [{ id: 'task-1', name: '2' }], },
+{ title: 'Finished', issues: [{ id: 'task-1', name: '3' }], }]
 
 userButton.addEventListener('click', function () {
     let downDrop = document.querySelector('.dropDownContent');
@@ -50,47 +42,45 @@ function createMenu() {
 function createTaskBlock(data) {
     const taskBlock = document.createElement("div");
     const head = document.createElement("div");
-    const content = document.createElement("ul");
     const addButtonWrapper = document.createElement("div");
-    let contentItem;
 
     taskBlock.classList.add('taskBlock');
     head.classList.add('taskBlockHead');
     head.innerText = data.title;
     taskBlock.appendChild(head);
-
-    content.classList.add('taskBlockContent')
-    taskBlock.appendChild(content);
-
+    taskBlock.appendChild(getTaskList(data));
+    addButtonWrapper.classList.add('addTaskButton');
+    addButtonWrapper.appendChild(getButton());
+    taskBlock.appendChild(addButtonWrapper);
+    main.appendChild(taskBlock);
+}
+function getTaskList(data) {
+    const content = document.createElement("ul");
+    let contentItem;
     for (let i = 0; i < data.issues.length; i++) {
         contentItem = document.createElement("li");
         contentItem.classList.add('taskBlockContentItem');
         contentItem.innerText = data.issues[i].name;
         content.appendChild(contentItem);
     }
-
-    addButtonWrapper.classList.add('addTaskButton');
-    addButtonWrapper.appendChild(getButton());
-    taskBlock.appendChild(addButtonWrapper);
-    main.appendChild(taskBlock);
+    content.classList.add('taskBlockContent')
+    return content
 }
-
 function getButton() {
     const addCardButton = document.createElement("button");
     const plus = document.createElement("img");
     let buttonText = document.createElement('p');
 
     addCardButton.classList.add('addCard');
-
     plus.src = "plus-solid.svg";
     plus.classList.add('addTaskButtonImage');
     addCardButton.appendChild(plus);
-
     buttonText.innerText = 'Add card';
     addCardButton.appendChild(buttonText);
     addCardButtonsArray.push(addCardButton);
     return addCardButton;
 }
+
 function addNewTask() {
     addCardButtonsArray[0].remove();
     let newTaskInput = document.createElement("INPUT");
@@ -98,32 +88,69 @@ function addNewTask() {
     document.querySelector('.addTaskButton').appendChild(newTaskInput);
     newTaskInput.onblur = getNewTask;
 }
-function getNewTask(event) {    
+
+function getNewTask(event) {
+    dataMock[0].issues.push({ id: `task-${dataMock[0].issues.length}`, name: event.target.value });
     event.target.remove();
-    let button=getButton();
+    let button = getButton();
+    addCardButtonsArray[0] = button;
     document.querySelectorAll('.addTaskButton')[0].append(button);
-    button.addEventListener("click",addNewTask);
+    button.addEventListener("click", addNewTask);
+    redrawTaskBlocks();
 }
+
 function getTaskToNextBlock(index) {
-    return function(e){
-        const issues = dataMock[index - 1].issues;
+    return function (e) {
+        let issues = dataMock[index - 1].issues;debugger
         addCardButtonsArray[index].remove();
-        const select=document.createElement("SELECT");
-        select.classList.add('.addTaskToNextBlockSelect');
-        for (let i=0;i<issues.length;i++) {         
+        const select = document.createElement("SELECT");
+        select.classList.add('addTaskToNextBlockSelect');
+        for (let i = 0; i < issues.length; i++) {
             let option = document.createElement("OPTION");
-            option.innerText=issues[i].name;
+            option.innerText = issues[i].name;
             select.appendChild(option);
         }
         document.querySelectorAll('.addTaskButton')[index].appendChild(select);
-        select.onblur=function(){
+        select.onblur = function () {
             dataMock[index].issues.push({ id: `task-${dataMock[index].issues.length}`, name: event.target.value });
-            dataMock[index-1].issues.splice(index-1,1);
+            dataMock[index - 1].issues.splice(select.selectedIndex, 1);
             event.target.remove();
-            let button=getButton();
+            let button = getButton();
+            addCardButtonsArray[index] = button;
             document.querySelectorAll('.addTaskButton')[index].append(button);
-            button.addEventListener("click",getTaskToNextBlock(index));
+            button.addEventListener("click", getTaskToNextBlock(index));
+            redrawTaskBlocks();
         }
     }
-   
+}
+
+function drawTaskBlocks(){
+    for (let i = 0; i < dataMock.length; i++) {
+        createTaskBlock(dataMock[i]);
+    }
+    addCardButtonsArray[0].onclick = addNewTask;
+    for (let i = 1; i < addCardButtonsArray.length; i++) {
+        addCardButtonsArray[i].addEventListener('click', getTaskToNextBlock(i));
+    }
+}
+function redrawTaskBlocks(){
+    const taskBlocks = document.querySelectorAll('.taskBlock');
+    for (let i = 0; i < taskBlocks.length; i++){
+        document.querySelector('.taskBlock').remove();
+    }
+    addCardButtonsArray = [];
+    drawTaskBlocks();
+}
+
+window.onunload = function () {
+    myStorage.setItem("dataMock", dataMock);
+}
+
+window.onload = function () {
+    if (!myStorage.getItem("dataMock")) {
+        debugger;
+        dataMock = myStorage.getItem("dataMock");
+    }
+    createMenu();
+    drawTaskBlocks();
 }
